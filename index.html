@@ -126,7 +126,12 @@
                     <!-- RIGHT-FOOTER -->
                     <div class="right-footer">
                         <i class="far fa-grin-alt"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text"
+                        v-for="(item, index) in contacts"
+                        placeholder="Scrivi un messaggio"
+                        @keyup.enter="addSent(index)"
+                        :class="index === currentContact ? 'show' : 'hide' "
+                        v-model="newMessage">
                         <i class="fas fa-microphone"></i>
                     </div>
                     <!-- /RIGHT-FOOTER -->

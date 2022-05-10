@@ -168,10 +168,16 @@ const app = new Vue(
                 }
             ],
             currentContact: 0,
+            newMessage: ''
         },
         methods : {
             thisChat(index) {
                 this.currentContact = index;
+            },
+            addSent(index) {
+                userMessage = this.newMessage;
+                this.contacts[index].message.push({message: userMessage, status: 'sent', date: 'ora'});
+                this.newMessage = '';
             },
         },
     }
