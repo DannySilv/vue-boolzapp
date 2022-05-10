@@ -19,6 +19,19 @@ img {
     margin-left: 0.3rem;
 }
 
+/* ACTIVE */
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none!important;
+}
+
+.active {
+    background-color: #b1b1b1;
+}
+
 /* MAIN */
 .app-wrapper {
     width: 80%;
@@ -146,18 +159,17 @@ img {
 
 .contacts {
     list-style: none;
-    padding: 0.4rem 0;
 }
 
 .this-contact {
-    height: 40px;
+    height: 50px;
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 0.4rem;
+    align-items: center;
 }
 
 .avatar-container {
-    margin-left: 0.3rem;
+    margin: 0.3rem 0 0.3rem 0.3rem;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -165,7 +177,7 @@ img {
 }
 
 .this-contact > .text-container h5 {
-    color: #b1b1b1;
+    color: #828282;
 }
 
 .last-access {
@@ -178,8 +190,102 @@ img {
 /* RIGHT-SECTION */
 .right-section {
     width: 65%;
-    min-width: 700px;
-
-    background-color: blueviolet;
+    min-width: 600px;
 }
 
+/* RIGHT-HEADER */
+.right-header {
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #eaeaea;
+    border-left: 1px solid #b1b1b1;
+}
+
+.right-header > .text-container h5 {
+    color: #828282;
+}
+
+.right-nav {
+    margin-left: auto;
+}
+
+.right-nav i {
+    margin-right: 0.6rem;
+    color: #b1b1b1;
+}
+
+/* RIGHT-CHAT */
+.right-chat {
+    height: calc(100% - 100px);
+    width: 100%;
+    padding-top: 0.8rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    background-image: url("../img/mine.jpg");
+}
+
+.message-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.8rem;
+    margin-bottom: 0.6rem;
+    width: 30%;
+}
+
+.message-row.sent {
+    align-items: flex-end;
+    background-color: #d5f9ba;
+    text-align: end;
+    margin-left: auto;
+}
+
+.message-row.received {
+    align-items: flex-start;
+    background-color: white;
+    text-align: left;
+    margin-right: auto;
+
+}
+
+.message {
+    padding: 0.4rem 0;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.msg-time {
+    float:right;
+    text-align: end;
+    font-size: 0.5rem;
+    color: #b1b1b1;
+}
+
+/* RIGHT-FOOTER */
+.right-footer {
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f3eeea;
+    width: 100%;
+}
+
+.right-footer input {
+    height: 80%;
+    width: 80%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border: 1px solid #eaeaea;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+}
+
+.right-footer i {
+    text-align: center;
+    width: 10%;
+    color: #b1b1b1;
+}

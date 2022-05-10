@@ -167,6 +167,12 @@ const app = new Vue(
                     ],
                 }
             ],
+            currentContact: 0,
+        },
+        methods : {
+            thisChat(index) {
+                this.currentContact = index;
+            },
         },
     }
 )

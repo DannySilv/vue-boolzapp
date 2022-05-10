@@ -64,7 +64,9 @@
                         <ul class="contacts">
                             <li 
                             v-for="(item, index) in contacts"
-                            class="this-contact">
+                            class="this-contact"
+                            :class="index === currentContact ? 'active' : ''"
+                            @click="thisChat(index)">
                                 <div class="avatar-container">
                                     <img
                                     :src=" `img/avatar${item.avatar}.jpg` " 
@@ -88,7 +90,46 @@
 
                 <!-- RIGHT-SECTION -->
                 <section class="right-section">
+                    <!-- RIGHT-HEADER -->
+                    <div 
+                    class="right-header"
+                    v-for="(item, index) in contacts"
+                    :class="index === currentContact ? 'show' : 'hide' ">
+                        <div class="img-container">
+                            <img
+                            :src=" `img/avatar${item.avatar}.jpg` " 
+                            :alt="item.name">
+                        </div>
+                        <div class="text-container ml-0-3">
+                            <h4>{{ item.name }}</h4>
+                            <h5>Ultimo accesso oggi alle 12:00</h5>
+                        </div>
+                        <div class="right-nav">
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <!-- /RIGHT-HEADER -->
 
+                    <!-- RIGHT-CHAT -->
+                    <div class="right-chat">
+                        <div class="message-row"
+                        v-for="message in contacts[currentContact].messages"
+                        :class="message.status">
+                            <div class="message">{{message.message}}</div>                                
+                            <div class="msg-time">{{message.date}}</div>
+                        </div>
+                    </div>
+                    <!-- /RIGHT-CHAT -->
+
+                    <!-- RIGHT-FOOTER -->
+                    <div class="right-footer">
+                        <i class="far fa-grin-alt"></i>
+                        <input type="text" placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <!-- /RIGHT-FOOTER -->
                 </section>
                 <!-- /RIGHT-SECTION -->
             </div>     
