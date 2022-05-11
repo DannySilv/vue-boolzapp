@@ -119,9 +119,21 @@
 
                     <!-- RIGHT-CHAT -->
                     <div class="right-chat">
-                        <div class="message-row"
-                        v-for="message in contacts[currentContact].messages"
-                        :class="message.status">
+                        <div class="message-row dropdown"
+                        v-for="(message, index) in contacts[currentContact].messages"
+                        v-show="delMessage"
+                        :class="message.status"
+                        @click="dropdownToggle(index)">
+                            <div 
+                            class="this-dropdown dropdown-content"
+                            v-show="toggle && index === currentMessage">
+                                <a href="#">Dettagli messaggio</a>
+                                <a 
+                                href="#" 
+                                @click="deleteMessage()">
+                                Elimina messaggio
+                                </a>
+                            </div>
                             <div class="message">{{message.message}}</div>                                
                             <div class="msg-time">{{message.date}}</div>
                         </div>

@@ -170,7 +170,10 @@ const app = new Vue(
             currentContact: 0,
             newMessage: '',
             timer: null,
-            searchContact: ''
+            searchContact: '',
+            currentMessage: 0,
+            toggle: false,
+            delMessage: true
         },
         methods : {
             thisChat(index) {
@@ -198,6 +201,18 @@ const app = new Vue(
                     }
                 });
             },
+            dropdownToggle(index) {
+                this.currentMessage = index;
+                if (this.toggle === false) {
+                    this.toggle = true;
+                } else {
+                    this.toggle = false;
+                }
+                // document.querySelectorAll(".this-dropdown")[index].classList.toggle("show-2");
+            },
+            deleteMessage(index) {
+                this.currentMessage = index;
+            }
         },
     }
 )
