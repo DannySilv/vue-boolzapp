@@ -79,10 +79,10 @@
                                 </div>
                                 <div class="text-container ml-0-3">
                                     <h4>{{ item.name }}</h4>
-                                    <h5>Ultimo messaggio ricevuto</h5>
+                                    <h5>{{ item.messages.at(-1).message }}</h5>
                                 </div>
                                 <div class="last-access">
-                                    <span>12:10</span>
+                                    <span>{{ item.messages.at(-1).date }}</span>
                                 </div>
                             </li>
                             
