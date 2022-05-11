@@ -168,16 +168,23 @@ const app = new Vue(
                 }
             ],
             currentContact: 0,
-            newMessage: ''
+            newMessage: '',
+            timer: null
         },
         methods : {
             thisChat(index) {
                 this.currentContact = index;
             },
             addSent(index) {
-                userMessage = this.newMessage;
-                this.contacts[index].message.push({message: userMessage, status: 'sent', date: 'ora'});
+                sentMessage = this.newMessage;
+                this.contacts[index].messages.push({message: sentMessage, status: 'sent', date: 'ora'});
                 this.newMessage = '';
+                setTimeout(() => 
+                    this.addReceived(index), 1000);
+            },
+            addReceived(index) {
+                receivedMessage = 'Ok';
+                this.contacts[index].messages.push({message: receivedMessage, status: 'received', date: 'ora'});
             },
         },
     }
