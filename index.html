@@ -68,6 +68,7 @@
                         <ul class="contacts">
                             <li 
                             v-for="(item, index) in contacts"
+                            v-if="item.visible"
                             class="this-contact"
                             :class="index === currentContact ? 'active' : ''"
                             @click="thisChat(index)">

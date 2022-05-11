@@ -170,8 +170,7 @@ const app = new Vue(
             currentContact: 0,
             newMessage: '',
             timer: null,
-            searchContact: '',
-            contactVisible: true 
+            searchContact: ''
         },
         methods : {
             thisChat(index) {
@@ -190,12 +189,12 @@ const app = new Vue(
                 this.contacts[index].messages.push({message: receivedMessage, status: 'received', date: 'ora'});
             },
             filterContacts() {
-                search = this.searchContact;
+                search = this.searchContact; 
                 this.contacts.forEach(item => {
                     if (item.name.toLowerCase().includes(search.toLowerCase())) { 
-                        this.contactVisible = true;
+                        item.visible = true;
                     } else {
-                        this.contactVisible = false;
+                        item.visible = false;
                     }
                 });
             },
