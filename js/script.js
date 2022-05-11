@@ -169,7 +169,10 @@ const app = new Vue(
             ],
             currentContact: 0,
             newMessage: '',
-            timer: null
+            timer: null,
+            searchContact: '',
+            contactVisible: true,
+            currentDayHour: dayjs().format('DD/MM/YYYY hh:mm:ss')
         },
         methods : {
             thisChat(index) {
@@ -177,7 +180,8 @@ const app = new Vue(
             },
             addSent(index) {
                 sentMessage = this.newMessage;
-                this.contacts[index].messages.push({message: sentMessage, status: 'sent', date: 'ora'});
+                dayAndHour = this.currentDayHour;
+                this.contacts[index].messages.push({message: sentMessage, status: 'sent', date: dayAndHour});
                 this.newMessage = '';
                 setTimeout(() => 
                     this.addReceived(index), 1000);
@@ -185,6 +189,16 @@ const app = new Vue(
             addReceived(index) {
                 receivedMessage = 'Ok';
                 this.contacts[index].messages.push({message: receivedMessage, status: 'received', date: 'ora'});
+            },
+            filterContacts() {
+                search = this.searchContact;
+                this.contacts.forEach(item => {
+                    if (item.name.toLowerCase().includes(search.toLowerCase())) { 
+                        this.contactVisible = true;
+                    } else {
+                        this.contactVisible = false;
+                    }
+                });
             },
         },
     }
