@@ -171,8 +171,7 @@ const app = new Vue(
             newMessage: '',
             timer: null,
             searchContact: '',
-            contactVisible: true,
-            currentDayHour: dayjs().format('DD/MM/YYYY hh:mm:ss')
+            contactVisible: true 
         },
         methods : {
             thisChat(index) {
@@ -180,7 +179,7 @@ const app = new Vue(
             },
             addSent(index) {
                 sentMessage = this.newMessage;
-                dayAndHour = this.currentDayHour;
+                dayAndHour = dayjs().format('DD/MM/YYYY hh:mm:ss');
                 this.contacts[index].messages.push({message: sentMessage, status: 'sent', date: dayAndHour});
                 this.newMessage = '';
                 setTimeout(() => 
