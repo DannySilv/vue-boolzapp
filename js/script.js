@@ -173,7 +173,6 @@ const app = new Vue(
             searchContact: '',
             currentMessage: 0,
             toggle: false,
-            delMessage: true
         },
         methods : {
             thisChat(index) {
@@ -211,7 +210,7 @@ const app = new Vue(
                 // document.querySelectorAll(".this-dropdown")[index].classList.toggle("show-2");
             },
             deleteMessage(index) {
-                this.currentMessage = index;
+                this.contacts[this.currentMessage].messages.splice(index,1);
             }
         },
     }
